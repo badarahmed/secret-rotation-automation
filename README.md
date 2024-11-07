@@ -1,6 +1,6 @@
 # Secret Rotation Automation
 
-This repository contains a project for automating the rotation of secrets. The project includes a YAML file listing all the secret names that need to be manually rotated, a GitHub Action that runs nightly to check the secrets and create a Linear issue when a secret is approaching its target date, and a Grafana Cloud alert to notify if the issue is not addressed within the SLA.
+This repository contains a project for automating the rotation of secrets. The project includes a YAML file listing all the secret names that need to be manually rotated, a GitHub Action that runs nightly to check the secrets, and a Grafana Cloud alert to notify if the issue is not addressed within the SLA.
 
 ## Setup Instructions
 
@@ -53,14 +53,11 @@ This repository contains a project for automating the rotation of secrets. The p
                python .github/scripts/rotate_secrets.py
      ```
 
-4. **Set up Linear API:**
-   - Follow the instructions on the [Linear API documentation](https://developers.linear.app/docs/graphql/getting-started) to create an API key and configure the GitHub Action to use it.
-
-5. **Set up Grafana Cloud API:**
+4. **Set up Grafana Cloud API:**
    - Follow the instructions on the [Grafana Cloud API documentation](https://grafana.com/docs/grafana-cloud/reference/api/) to create an API key and configure the GitHub Action to use it.
 
-6. **Run the GitHub Action:**
-   - The GitHub Action will run nightly and check the secrets. If a secret is approaching its target date, it will create a Linear issue. If the issue is not addressed within the SLA, a Grafana Cloud alert will be triggered.
+5. **Run the GitHub Action:**
+   - The GitHub Action will run nightly and check the secrets. If a secret is approaching its target date, it will trigger a Grafana Cloud alert if the issue is not addressed within the SLA.
 
 ## Contributing
 
